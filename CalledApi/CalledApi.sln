@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalledApi", "CalledApi\CalledApi.csproj", "{8304194B-A773-492A-B18D-0B974C79D095}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{8C392A74-57E3-4155-86A7-F422EF59B187}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{32DC223C-088F-4201-BEC6-F7E15FF9984F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infraestructure", "Infraestructure", "{E5A28D38-1495-41BF-BD72-F372236F29C4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8304194B-A773-492A-B18D-0B974C79D095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8304194B-A773-492A-B18D-0B974C79D095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8304194B-A773-492A-B18D-0B974C79D095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8304194B-A773-492A-B18D-0B974C79D095}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8304194B-A773-492A-B18D-0B974C79D095} = {8C392A74-57E3-4155-86A7-F422EF59B187}
+	EndGlobalSection
+EndGlobal

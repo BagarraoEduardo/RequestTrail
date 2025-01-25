@@ -10,7 +10,8 @@ public static class PresentationExtensions
     {
         services.AddLogging(configuration, host);
 
-        return services;
+        return services
+            .AddHttpContextAccessor();
     }
 
     private static void AddLogging(this IServiceCollection services,  IConfiguration configuration, IHostBuilder host)
@@ -25,7 +26,7 @@ public static class PresentationExtensions
         .WriteTo.Console()
         .WriteTo.MariaDB(
             connectionString: configuration.GetConnectionString("DefaultConnection"),
-            autoCreateTable: true,
+            autoCreateTable: false,
             tableName: "Log",
             options: options)
         .Enrich.FromLogContext()

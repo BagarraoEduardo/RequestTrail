@@ -16,7 +16,10 @@
         <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.4" />
         <PackageReference Include="Serilog.Sinks.MariaDB" Version="1.0.1" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
-        <!-- <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" /> -->
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="../Infraestructure/CalledApi.Trailing/CalledApi.Trailing.csproj" />
     </ItemGroup>
 
 </Project>

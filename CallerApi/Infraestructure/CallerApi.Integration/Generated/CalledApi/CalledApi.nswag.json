@@ -1,0 +1,122 @@
+﻿{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "CalledApi",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Main/SuccessExample": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "SuccessExample",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageDTO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Main/BadRequestExample": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "BadRequestExample",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageDTO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Main/InternalServerErrorExample": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "InternalServerErrorExample",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageDTO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessageDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ErrorMessageDTO": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,12 +1,10 @@
 using CalledApi.Extensions;
-using CalledApi.Middelwares;
 using CalledApi.Trailing;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddLogging();
 builder.Services.SetupTrail();
 builder.Services.SetupPresentation(builder.Configuration, builder.Host);
 

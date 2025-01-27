@@ -1,7 +1,10 @@
 using CalledApi.Trailing;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Serilog.Context;
 
-namespace CalledApi.Middelwares;
+namespace CalledApi.Trailing;
 
 public class TrailMiddleware
 {

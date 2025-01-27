@@ -19,7 +19,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="../Infraestructure/CalledApi.Trailing/CalledApi.Trailing.csproj" />
+      <ProjectReference Include="../../Infraestructure/CalledApi.Trailing/CalledApi.Trailing.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Middelwares/" />
     </ItemGroup>
 
 </Project>

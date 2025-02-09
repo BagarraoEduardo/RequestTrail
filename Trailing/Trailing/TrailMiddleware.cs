@@ -1,4 +1,3 @@
-using CalledApi.Trailing;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -44,14 +43,14 @@ public class TrailMiddleware
                 var trail = new Trail()
                 {
                     RequestTimestamp = DateTime.Now,
-                    RequestUri = context.Request.Path,
+                    RequestUri = $"{context.Request.Scheme}://{context.Request.Host}{context.Request.PathBase}{context.Request.Path}{context.Request.QueryString}",
                     RequestHeaders = context.Request.Headers.ToString() ?? string.Empty,
                     CorrelationId = correlationId
                 };
 
                 context.Request.EnableBuffering();
 
-                using (var reader = new StreamReader(context.Request.Body))
+                using (var reader = new StreamReader(context.Request.Body, leaveOpen: true))
                 {
                     context.Request.Body.Position = 0;
                     trail.RequestBody = await reader.ReadToEndAsync();

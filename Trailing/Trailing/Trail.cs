@@ -1,6 +1,6 @@
 using System;
 
-namespace CalledApi.Trailing;
+namespace Trailing;
 
 public class Trail
 {

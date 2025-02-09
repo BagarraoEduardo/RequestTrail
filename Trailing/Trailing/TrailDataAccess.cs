@@ -2,9 +2,10 @@ using System;
 using System.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using MySqlConnector;
 
-namespace CalledApi.Trailing;
+namespace Trailing;
 
 public interface ITrailDataAccess
 {
@@ -17,11 +18,13 @@ public class TrailDataAccess : ITrailDataAccess
 
     private readonly IConfiguration _configuration;
     private readonly ILogger<TrailDataAccess> _logger;
+    private readonly TrailOptions _options;
 
-    public TrailDataAccess(ILogger<TrailDataAccess> logger, IConfiguration configuration)
+    public TrailDataAccess(ILogger<TrailDataAccess> logger, IConfiguration configuration, IOptions<TrailOptions> options)
     {
         _logger = logger;
         _configuration = configuration;
+        _options = options.Value;
     }
 
     public async Task<(bool Success, string ErrorMessage, long Id)> InsertTrailAsync(Trail trail)
@@ -30,10 +33,10 @@ public class TrailDataAccess : ITrailDataAccess
 
         try
         {
-            const string insertTrailCommand =
+            string insertTrailCommand =
             @"
                 INSERT INTO
-                    CalledApi.Trail
+                    " + _options.DatabaseName + @".Trail
                     (
                         RequestTimestamp,
                         RequestUri,
@@ -59,8 +62,8 @@ public class TrailDataAccess : ITrailDataAccess
             using var command = new MySqlCommand(insertTrailCommand, connection);
             command.Parameters.AddWithValue("@RequestTimestamp", trail.RequestTimestamp);
             command.Parameters.AddWithValue("@RequestUri", trail.RequestUri);
-            command.Parameters.AddWithValue("@RequestHeaders", trail.RequestHeaders);
-            command.Parameters.AddWithValue("@RequestBody", trail.RequestBody);
+            command.Parameters.AddWithValue("@RequestHeaders", trail.RequestHeaders?.Replace("\n", "")?.Replace("\r", ""));
+            command.Parameters.AddWithValue("@RequestBody", trail.RequestBody?.Replace("\n", "")?.Replace("\r", ""));
             command.Parameters.AddWithValue("@CorrelationId", trail.CorrelationId.ToString());
 
             var generatedId = await command.ExecuteScalarAsync();
@@ -93,10 +96,10 @@ public class TrailDataAccess : ITrailDataAccess
         (bool Success, string ErrorMessage) response = (false, string.Empty);
         try
         {
-            const string updateTrailCommand =
+            string updateTrailCommand =
             @"
                 UPDATE
-                    CalledApi.Trail
+                    " + _options.DatabaseName + @".Trail
                 SET
                     ResponseTimestamp=@ResponseTimestamp,
                     ResponseBody=@ResponseBody,
@@ -109,8 +112,8 @@ public class TrailDataAccess : ITrailDataAccess
 
             using var command = new MySqlCommand(updateTrailCommand, connection);
             command.Parameters.AddWithValue("@ResponseTimestamp", trail.ResponseTimestamp);
-            command.Parameters.AddWithValue("@ResponseBody", trail.ResponseBody);
-            command.Parameters.AddWithValue("@StatusCode", trail.StatusCode);
+            command.Parameters.AddWithValue("@ResponseBody", trail.ResponseBody?.Replace("\n", "").Replace("\r", ""));
+            command.Parameters.AddWithValue("@StatusCode", trail.StatusCode?.Trim());
             command.Parameters.AddWithValue("@Id", trail.Id);
 
             var result = await command.ExecuteNonQueryAsync();

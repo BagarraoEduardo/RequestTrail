@@ -7,11 +7,21 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="BagarraoEduardo.RequestTrailing" Version="1.2.2" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.11" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+        <PackageReference Include="AutoMapper" Version="13.0.1" />
+        <PackageReference Include="Serilog" Version="4.2.0" />
+        <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+        <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
+        <PackageReference Include="Serilog.Enrichers.AspNetCore" Version="1.0.0" />
+        <PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
+        <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.4" />
+        <PackageReference Include="Serilog.Sinks.MariaDB" Version="1.0.1" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="../../Business/CallerApi.Business/CallerApi.Business.csproj" />
       <ProjectReference Include="../../Infraestructure/CallerApi.Integration/CallerApi.Integration.csproj" />
       <ProjectReference Include="../../Infraestructure/CallerApi.Trailing/CallerApi.Trailing.csproj" />
     </ItemGroup>

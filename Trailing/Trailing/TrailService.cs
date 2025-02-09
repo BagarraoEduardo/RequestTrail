@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Logging;
 using MySqlConnector;
 
-namespace CalledApi.Trailing;
+namespace Trailing;
 
 public interface ITrailService
 {

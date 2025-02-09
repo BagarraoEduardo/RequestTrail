@@ -1,10 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# 
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infraestructure", "Infraestructure", "{E5A28D38-1495-41BF-BD72-F372236F29C4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalledApi.Trailing", "Infraestructure\CalledApi.Trailing\CalledApi.Trailing.csproj", "{0CEEB92A-6DBA-46F6-81AA-549C22A6CE93}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{2897A3F4-577A-4870-9B5B-937D56463EA5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalledApi", "Presentation\CalledApi\CalledApi.csproj", "{2F4E11E9-2B84-4B1D-A85E-D51A7E2EC2D4}"
@@ -15,10 +10,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0CEEB92A-6DBA-46F6-81AA-549C22A6CE93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0CEEB92A-6DBA-46F6-81AA-549C22A6CE93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0CEEB92A-6DBA-46F6-81AA-549C22A6CE93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0CEEB92A-6DBA-46F6-81AA-549C22A6CE93}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2F4E11E9-2B84-4B1D-A85E-D51A7E2EC2D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2F4E11E9-2B84-4B1D-A85E-D51A7E2EC2D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F4E11E9-2B84-4B1D-A85E-D51A7E2EC2D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -28,7 +19,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{0CEEB92A-6DBA-46F6-81AA-549C22A6CE93} = {E5A28D38-1495-41BF-BD72-F372236F29C4}
 		{2F4E11E9-2B84-4B1D-A85E-D51A7E2EC2D4} = {2897A3F4-577A-4870-9B5B-937D56463EA5}
 	EndGlobalSection
 EndGlobal
